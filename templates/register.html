@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register - Better Aid</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='CSS/main.css') }}">
+</head>
+<body style="background-image: url('{{ url_for('static', filename='images/Better-Aid.jpg') }}');">
+    <div class="container">
+        <h1>Register</h1>
+        <form method="POST">
+            <div class="form-group">
+                <label for="name">Name of Organization:</label>
+                <input type="text" id="name" name="name" placeholder="Organization name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Organization Email:</label>
+                <input type="email" id="email" name="email" placeholder="Your organization email" required>
+            </div>
+            <div class="form-group">
+                <label for="country">Country of Origin:</label>
+                <input type="text" id="country" name="country" placeholder="Country" required>
+            </div>
+            <div class="form-group">
+                <label for="vision">Organization Vision:</label>
+                <textarea id="vision" name="vision" placeholder="Your organization's vision" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="thematic_area">Thematic Area of Focus:</label>
+                <input type="text" id="thematic_area" name="thematic_area" placeholder="Thematic area" required>
+            </div>
+            <div class="form-group">
+                <label for="social_media_links">Social Media Links:</label>
+                <input type="text" id="social_media_links" name="social_media_links" placeholder="Facebook, Instagram, Twitter" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Create Password:</label>
+                <input type="password" id="password" name="password" placeholder="Your password (min. 8 characters)" required>
+            </div>
+            <div class="form-group">
+                <label for="profile_pic">Profile Picture:</label>
+                <input type="file" id="profile_pic" name="profile_pic" accept="image/*" required>
+            </div>
+            <button type="submit" class="btn">Register</button>
+        </form>
+    </div>
+</body>
+</html>
