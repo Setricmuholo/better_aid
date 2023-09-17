@@ -58,6 +58,7 @@ h1 {
 .address {
     display: block;
     font-style: italic;
+    text-align: center;
 }
 .form {
 	padding: 30px;
