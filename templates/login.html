@@ -6,6 +6,9 @@
 </head>
 <body style="background-image: url('{{ url_for('static', filename='images/Better-Aid.jpg') }}');">
     <div class="container">
+        <div class="demo-button">
+            <a href="{{ url_for('admin') }}" class="btn">Demo</a>
+        </div>
         <h1>Login</h1>
         <form method="POST">
             <div class="form-group">

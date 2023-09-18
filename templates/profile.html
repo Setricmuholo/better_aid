@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Work Plan - Better Aid</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='CSS/main.css') }}">
+    <!-- Include the FullCalendar CSS and JavaScript files here -->
+    <!-- Example: -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.9.0/main.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.9.0/main.js"></script>
+</head>
+<body style="background-image: url('{{ url_for('static', filename='images/background.jpg') }}');">
+    <div class="container">
+        <h1>Work Plan</h1>
+        <!-- Add a div element for the calendar -->
+        <div id="calendar"></div>
+        
+        <!-- Back button to return to admin page -->
+        <a href="{{ url_for('admin') }}" class="btn">Back to Admin</a>
+    </div>
+
+    <!-- Initialize the FullCalendar plugin -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                // Add your calendar configuration options here
+                initialView: 'dayGridMonth',
+                events: [
+                    // Add your calendar events here (if any)
+                    // Example:
+                    // {
+                    //     title: 'Event 1',
+                    //     start: '2023-09-15',
+                    //     end: '2023-09-15'
+                    // },
+                    // {
+                    //     title: 'Event 2',
+                    //     start: '2023-09-20',
+                    //     end: '2023-09-21'
+                    // }
+                ]
+            });
+            calendar.render();
+        });
+    </script>
+</body>
+</html>

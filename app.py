@@ -13,20 +13,7 @@ class User(db.Model):
     email = db.Column(db.String(100), unique=True)
     password = db.Column(db.String(100), nullable=False)
     #thematic = db.Column(db.String(100))
-    username = db.Column(db.String(100), unique=True, nullable=False)
-    password_hash = db.Column(db.String(100), nullable=False)
-
-    def set_password(self, password):
-        self.password_hash = generate_password_hash(password)
     
-    def check_password(self, password):
-        return check_password_hash(self.password_hash, password)
-
-def validate_credentials(username, password):
-    user = user.query.filter_by(username=username).first()
-    if user and user.check_password(password):
-        return True
-    return False
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -38,15 +25,12 @@ def about():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        entered_username = request.form['username']
-        entered_password = request.form['password']
+        email = request.form['email']
+        password = request.form['password']
+        # Add authentication logic
 
-        if validate_credentials(entered_username, entered_password):
-            session['user_name'] = entered_username
-            flash('Login succesful', 'success')
-            return redirect(url_for('admin'))
-        else:
-            flash('Authentication failed', 'danger')
+        flash('Login succesful', 'success')
+        return redirect(url_for('index.html'))
     return render_template('login.html')
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -72,14 +56,9 @@ def register():
         return redirect(url_for('login'))
     return render_template('register.html')
 
-@app.route('/admin')
+@app.route('/admin', methods=['GET', 'POST'])
 def admin():
-    if 'user_name' in session:
-        user_name = session['user_name']
-        return render_template('admin.html', user_name=user_name)
-    
-    else:
-        return redirect(url_for('login'))
+    return render_template('admin.html')
 
 @app.route('/logout')
 def logout():
