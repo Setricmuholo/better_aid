@@ -1,73 +1,64 @@
-/* Reset some default styling */
-body, h1, h2, h3, p, ul, li {
-    margin: 0;
-    padding: 0;
-}
-
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .container {
-    width: 80%;
-    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin: 10% auto;
+    max-width: 400px;
+}
+
+.center {
+    text-align: center;
 }
 
 h1 {
-    text-align: center;
-    margin-bottom: 20px;
+    color: lightblue;
 }
 
-/* Styling for buttons */
+.buttons {
+    margin-top: 20px;
+}
+
 .btn {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
+    background-color: lightblue;
+    color: #333;
     text-decoration: none;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.btn:hover {
-    background-color: #0056b3;
-}
-
-/* Styling for forms */
-.form-group {
-    margin-bottom: 15px;
-}
-
-label {
-    font-weight: bold;
-}
-
-input[type="text"],
-input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
+    margin: 10px;
     border-radius: 5px;
 }
 
-/* Styling for the calendar */
-#calendar {
-    margin-top: 20px;
-    background-color: #fff;
-    border: 1px solid #ccc;
+.about-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: lightblue;
+    color: #333;
+    text-decoration: none;
+    padding: 5px 10px;
     border-radius: 5px;
 }
 
-/* Styling for the back button */
 .back-btn {
-    display: block;
-    text-align: center;
+    display: inline-block;
     margin-top: 20px;
+    padding: 10px 20px;
+    background-color: lightblue;
+    color: #333;
+    text-decoration: none;
+    border-radius: 5px;
 }
-
-/* Add additional CSS styles as needed for your specific design preferences */
+.address {
+    display: block;
+    font-style: italic;
+}
+.form {
+	padding: 30px;
+}
