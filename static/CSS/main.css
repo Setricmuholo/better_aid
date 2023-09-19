@@ -61,7 +61,7 @@ h1 {
     bottom: 0;
     width: 100%;
     text-align: center;
-    color: blue;
+    color:blue;
 }
     /* .form { */
 	/* padding: 30px; */
@@ -101,7 +101,7 @@ h1 {
       
       img.avatar {
         width: 40%;
-        border-radius: 50%;
+        border-radius: 90%;
       }
       
       .container {
