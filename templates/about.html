@@ -4,11 +4,26 @@
     <title>About Better Aid</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='CSS/main.css') }}">
 </head>
-<body style="background-image: url('{{ url_for('static', filename='images/Better-Aid.jpg') }}');">
+<body>
     <div class="container">
         <h1>About Better Aid</h1>
         <p>Welcome to Better Aid, where meaningful connections between large Non-Governmental Organizations (NGOs) and local organizations within our community are just a click away. Our dedicated team, consisting of Setric Muholo, Alex is committed to fostering collaboration and simplifying the funding process for local organizations with pending projects.</p>
-        <a href="{{ url_for('index') }}" class="back-btn">Back to Home</a>
     </div>
+    <div class="image-container">
+        <div class="image-item">
+            <img src="{{ url_for('static', filename='images/image1.jpg') }}" alt="Image 1">
+    
+            <img src="{{ url_for('static', filename='images/image2.jpg') }}" alt="Image 2">
+            
+            <img src="{{ url_for('static', filename='images/image3.jpg') }}" alt="Image 3">
+            
+            <img src="{{ url_for('static', filename='images/image4.jpg') }}" alt="Image 4">
+             
+            <img src="{{ url_for('static', filename='images/image5.jpg') }}" alt="Image 5">
+             
+            <img src="{{ url_for('static', filename='images/image6.jpg') }}" alt="Image 6">
+        </div>
+    </div>
+    <a href="{{ url_for('index') }}" class="back-btn">Back to Home</a>
 </body>
 </html>

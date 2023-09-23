@@ -24,17 +24,17 @@
         </form>
         <p>Don't have an account? <a href="{{ url_for('register') }}">Register here</a></p> -->
     </div>
-    <form action="/action_page.php" method="post">
-        <div class="imgcontainer">
+    <form action="/action_page.php" method="POST">
+        <!-- <div class="imgcontainer">
           <img src="static/images/picture.jpg" alt="Avatar" class="avatar">
-        </div>
+        </div> -->
       
         <div class="container">
-          <label for="uname"><b>Username</b></label>
-          <input type="text" placeholder="Enter Username" name="uname" required>
+          <label for="email"><b>Email</b></label>
+          <input type="text" placeholder="Enter Email" name="email" required>
       
-          <label for="psw"><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="psw" required>
+          <label for="password"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="password" required>
               
           <button type="submit"> <a href="{{ url_for('admin') }}" class="btn">Login</a></button>
           <label>
@@ -46,6 +46,7 @@
           <button type="button" class="cancelbtn">Cancel</button>
           <span class="psw">Forgot <a href="#">password?</a></span>
         </div>
+        <a href="{{ url_for('index') }}" class="back-btn">Back to Home</a>
       </form>
 </body>
 </html>
