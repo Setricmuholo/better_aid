@@ -3,10 +3,9 @@
 <head>
     <title>Admin - Better Aid</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='CSS/main.css') }}">
-</head>
-<body style="background-image: url('{{ url_for('static', filename='images/Better-Aid.jpg') }}');">
-    <div class="container">
-        <div class="sidebar">
+    <header>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <nav>
             <ul>
                 <li><a href="#">Profile</a></li>
                 <li><a href="#">Work Plan</a></li>
@@ -14,7 +13,16 @@
                 <li><a href="#">Settings</a></li>
                 <li><a href="{{ url_for('logout') }}">Logout</a></li>
             </ul>
-        </div>
+        </nav>
+        <label for="nav-toggle" class="nav-toggle-label">
+            <span></span>
+        </label>
+    </header>
+</head>
+<body style="background-image: url('{{ url_for('static', filename='images/Better-Aid.jpg') }}');">
+    <div class="container">
+        <!-- <div class="sidebar">   
+        </div> -->
         <div class="content">
             <div class="search-bar">
                 <input type="text" placeholder="Search by thematic area">
