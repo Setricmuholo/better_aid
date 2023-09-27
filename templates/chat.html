@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat with AI - Better Aid</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='CSS/main.css') }}">
+</head>
+<body style="background-image: url('{{ url_for('static', filename='images/Better-Aid.jpg') }}');">
+    <div class="container">
+        <h1>Chat with AI</h1>
+
+        <!-- Chat Box -->
+        <div class="chat-box">
+            <div class="chat-history">
+                <!-- Chat messages will be displayed here -->
+            </div>
+            <div class="user-input">
+                <input type="text" id="user-message" placeholder="Type your message">
+                <button id="send-button" class="btn">Send</button>
+            </div>
+        </div>
+
+        <!-- Back button to return to admin page -->
+        <a href="{{ url_for('admin') }}" class="btn">Back to Admin</a>
+    </div>
+
+    <script>
+        // Event listener for when the user clicks the send button
+    sendButton.addEventListener('click', () => {
+        const userMessage = userMessageInput.value;
+        if (userMessage.trim() !== '') {
+            // Display the user's message in the chat history
+            addMessageToChat(userMessage, true);
+
+            // Send the user's message to the backend
+            fetch('/send_message', {
+                method: 'POST',
+                body: new URLSearchParams({
+                    'user_message': userMessage,
+                }),
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Display the AI's response in the chat history
+                addMessageToChat(data.response, false);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+
+            // Clear the user input field
+            userMessageInput.value = '';
+        }
+    });
+    </script>
+</body>
+</html>

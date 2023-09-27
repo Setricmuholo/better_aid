@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Research - Better Aid</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='CSS/main.css') }}">
+    <header>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('admin') }}">Home</a></li>
+                <li><a href="#">Work Plan</a></li>
+                <li><a href="#">Chat Box</a></li>
+                <!-- <li><a href="{{ url_for('research') }}">Settings</a></li> -->
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            </ul>
+        </nav>
+        <label for="nav-toggle" class="nav-toggle-label">
+            <span></span>
+        </label>
+    </header>
+</head>
+<body style="background-image: url('{{ url_for('static', filename='images/books.jpg') }}');">
+    <div class="container">
+        <h1>Research</h1>
+
+        <!-- Google Search Bar -->
+        <div class="search-bar">
+            <!-- Replace 'YOUR_GOOGLE_CX' with your custom search engine ID -->
+            <script async src="https://cse.google.com/cse.js?cx=YOUR_GOOGLE_CX"></script>
+            <div class="gcse-search"></div>
+        </div>
+
+        <!-- Book Title Recommendations -->
+        <div class="book-recommendations">
+            <h2>Book Title Recommendations</h2>
+            <ul>
+                <li><a href="#" target="_blank">Book Title 1</a></li>
+                <li><a href="#" target="_blank">Book Title 2</a></li>
+                <li><a href="#" target="_blank">Book Title 3</a></li>
+                <!-- Add more book recommendations as needed -->
+            </ul>
+        </div>
+
+        <!-- Back button to return to admin page -->
+        <a href="{{ url_for('admin') }}" class="btn">Back to Admin</a>
+    </div>
+</body>
+</html>

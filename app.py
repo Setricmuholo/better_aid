@@ -1,6 +1,8 @@
-from flask import Flask, render_template, redirect, url_for, request, flash, session
+from flask import Flask, render_template, redirect, url_for, request, flash, session, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
+import requests
+import openai
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your_secret_key'
@@ -65,6 +67,61 @@ def logout():
     session.pop('user_name', None)
     flash('Logout successful', 'success')
     return redirect(url_for('login'))
+
+@app.route('/research')
+def research():
+    return render_template('research.html')
+
+# Function to send user message to ChatGPT
+def send_message_to_chatgpt(message):
+    # Set your OpenAI API key here
+    api_key = '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'
+
+    # Initialize the OpenAI API client with your API key
+    openai.api_key = api_key
+
+    # Define the user's message as the prompt
+    prompt = message
+
+    # Use the OpenAI API to generate a response
+    try:
+        response = openai.Completion.create(
+            engine="gpt-3.5-turbo",  # Adjust the engine as needed
+            prompt=prompt,
+            max_tokens=50,           # Adjust for desired response length
+        )
+
+        # Extract the AI's response text from the API response
+        ai_response = response.choices[0].text.strip()
+        
+        return ai_response
+    except Exception as e:
+        # Handle API request errors
+        return f'Error: {str(e)}'
+
+# Route to render the chat page
+@app.route('/chat')
+def chat():
+    return render_template('chat.html')
+
+# Route to handle user messages and send AI responses
+@app.route('/send_message', methods=['POST'])
+def send_message():
+    user_message = request.form.get('user_message')
+    
+    # Send the user's message to ChatGPT and receive a response
+    ai_response = send_message_to_chatgpt(user_message)
+
+    # Return the AI's response as JSON
+    return jsonify({'response': ai_response})
+
+@app.route('/test_api_request')
+def test_api_request():
+    test_message = "Hello, ChatGPT!"
+    response = send_message_to_chatgpt(test_message)
+    print(response)  # Print the response to your server console
+    return response
+
 
 if __name__ == '__main__':
     with app.app_context():
