@@ -10,7 +10,7 @@
                 <li><a href="{{ url_for('admin') }}">Home</a></li>
                 <li><a href="{{ url_for('work') }}">Work Plan</a></li>
                 <li><a href="{{ url_for('chat') }}">Chat Box</a></li>
-                <li><a href="{{ url_for('research') }}">Settings</a></li>
+                <li><a href="{{ url_for('research') }}">Research</a></li>
                 <li><a href="{{ url_for('logout') }}">Logout</a></li>
             </ul>
         </nav>
@@ -30,6 +30,21 @@
             </div>
             <h1>Welcome, {{ user_name }}</h1>
             <!-- Sedric -->
+        </div>
+    </div>
+    <div class="image-container">
+        <div class="image-item">
+            <img src="{{ url_for('static', filename='images/image1.jpg') }}" alt="Image 1">
+    
+            <img src="{{ url_for('static', filename='images/image2.jpg') }}" alt="Image 2">
+            
+            <img src="{{ url_for('static', filename='images/image3.jpg') }}" alt="Image 3">
+            
+            <img src="{{ url_for('static', filename='images/image4.jpg') }}" alt="Image 4">
+             
+            <img src="{{ url_for('static', filename='images/image5.jpg') }}" alt="Image 5">
+             
+            <img src="{{ url_for('static', filename='images/image6.jpg') }}" alt="Image 6">
         </div>
     </div>
 </body>
