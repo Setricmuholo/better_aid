@@ -5,13 +5,19 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='CSS/main.css') }}">
 </head>
 <body style="background-image: url('{{ url_for('static', filename='images/Better-Aid.jpg') }}');">
-    <div class="container">
+    <div class="content">
         <h1>Chat with AI</h1>
 
         <!-- Chat Box -->
         <div class="chat-box">
             <div class="chat-history">
                 <!-- Chat messages will be displayed here -->
+                <div class="user-message">
+                    <div class="message-content">Hello, AI!</div>
+                </div>
+                <div class="ai-message">
+                    <div class="message-content">Hi there! How can I assist you today?</div>
+                </div>
             </div>
             <div class="user-input">
                 <input type="text" id="user-message" placeholder="Type your message">
@@ -25,35 +31,34 @@
 
     <script>
         // Event listener for when the user clicks the send button
-    sendButton.addEventListener('click', () => {
-        const userMessage = userMessageInput.value;
-        if (userMessage.trim() !== '') {
-            // Display the user's message in the chat history
-            addMessageToChat(userMessage, true);
-
-            // Send the user's message to the backend
-            fetch('/send_message', {
-                method: 'POST',
-                body: new URLSearchParams({
-                    'user_message': userMessage,
-                }),
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                },
-            })
-            .then(response => response.json())
-            .then(data => {
-                // Display the AI's response in the chat history
-                addMessageToChat(data.response, false);
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-
-            // Clear the user input field
-            userMessageInput.value = '';
-        }
-    });
+        sendButton.addEventListener('click', () => {
+            const userMessage = userMessageInput.value;
+            if (userMessage.trim() !== '') {
+                // Display the user's message in the chat history
+                addMessageToChat(userMessage, true);
+                // Send the user's message to the backend
+                fetch('/send_message', {
+                    method: 'POST',
+                    body: new URLSearchParams({
+                        'user_message': userMessage,
+                    }),
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                })
+                .then(data => {
+                    // Create a new AI message element
+                    const aiMessageElement = document.createElement('div');
+                    aiMessageElement.classList.add('ai-message');
+                    aiMessageElement.innerHTML = `<div class="message-content">${data.response}</div>`;
+                    // Append the AI message element to the chat history
+                    const chatHistory = document.querySelector('.chat-history');
+                    chatHistory.appendChild(aiMessageElement);
+                    // Log the AI's response for debugging
+                    console.log('AI Response:', data.response);
+                })
+            }
+        });
     </script>
 </body>
 </html>
