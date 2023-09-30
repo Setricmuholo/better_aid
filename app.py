@@ -84,7 +84,7 @@ def research():
 # Function to send user message to ChatGPT
 def send_message_to_chatgpt(message):
     # Set your OpenAI API key here
-    api_key = "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"
+    api_key = "s"
 
     # Initialize the OpenAI API client with your API key
     openai.api_key = api_key
