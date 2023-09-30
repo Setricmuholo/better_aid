@@ -2,6 +2,9 @@
 <html>
 <head>
     <title>Admin - Better Aid</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='CSS/main.css') }}">
     <header>
         <input type="checkbox" id="nav-toggle" class="nav-toggle">
@@ -20,7 +23,7 @@
     </header>
 </head>
 <body style="background-image: url('{{ url_for('static', filename='images/Better-Aid.jpg') }}');">
-    <div class="container">
+    <div class="content">
         <!-- <div class="sidebar">   
         </div> -->
         <div class="content">
@@ -28,7 +31,7 @@
                 <input type="text" placeholder="Search by thematic area">
                 <button type="submit">Search</button>
             </div>
-            <h1>Welcome, {{ user_name }}</h1>
+            <h1>Welcome To Your Administration Page</h1>
             <!-- Sedric -->
         </div>
     </div>
