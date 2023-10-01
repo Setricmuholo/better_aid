@@ -21,7 +21,8 @@
             </div>
             <div class="user-input">
                 <input type="text" id="user-message" placeholder="Type your message">
-                <button id="send-button" class="btn">Send</button>
+                <!-- Send button -->
+                <a href="{{ url_for('feedback') }}" class="btn">Send</a>
             </div>
         </div>
 
@@ -30,6 +31,23 @@
     </div>
 
     <script>
+        // Event listener for when the user clicks the send button
+        sendButton.addEventListener('click', () => {
+            const userMessage = userMessageInput.value;
+            if (userMessage.trim() !== '') {
+                // Display the user's message in the chat history
+                addMessageToChat(userMessage, true);
+    
+                // Redirect the user to the feedback page
+                window.location.href = '/feedback.html';
+    
+                // Clear the user input field
+                userMessageInput.value = '';
+            }
+        });
+    </script>
+    
+    <!-- <script>
         // Event listener for when the user clicks the send button
         sendButton.addEventListener('click', () => {
             const userMessage = userMessageInput.value;
@@ -59,6 +77,6 @@
                 })
             }
         });
-    </script>
+    </script> -->
 </body>
 </html>

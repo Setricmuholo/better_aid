@@ -81,6 +81,10 @@ def logout():
 def research():
     return render_template('research.html')
 
+@app.route('/feedback')
+def feedback():
+    return render_template('feedback.html')
+
 # Function to send user message to ChatGPT
 def send_message_to_chatgpt(message):
     # Set your OpenAI API key here
